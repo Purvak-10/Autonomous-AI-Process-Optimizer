@@ -1,0 +1,69 @@
+company:
+  name: "Synthetic Support Company"
+
+roles:
+  agent_1:
+    cost_per_minute: 0.3
+    efficiency: 0.9
+  agent_2:
+    cost_per_minute: 0.6
+    efficiency: 1.2
+  manager:
+    cost_per_minute: 1.2
+    efficiency: 0.8
+  system:
+    cost_per_minute: 0.05
+    efficiency: 1.5
+
+workflow:
+  steps:
+    - Created
+    - Assigned
+    - In_Progress
+    - Escalated
+    - Approved
+    - Closed
+
+transitions:
+  Created:
+    Assigned: 1.0
+
+  Assigned:
+    In_Progress: 1.0
+
+  In_Progress:
+    Escalated: 0.3
+    Approved: 0.2
+    Closed: 0.5
+
+  Escalated:
+    In_Progress: 0.6
+    Approved: 0.4
+
+  Approved:
+    Closed: 1.0
+
+actors:
+  Assigned: ["system"]
+  In_Progress: ["agent_1", "agent_2"]
+  Escalated: ["agent_2"]
+  Approved: ["manager"]
+  Closed: ["system"]
+
+delays_minutes:
+  Assigned: [2, 5]
+  In_Progress: [30, 180]
+  Escalated: [60, 300]
+  Approved: [120, 600]
+  Closed: [1, 3]
+
+
+
+# DNA of the Synthetic company
+
+# Purpose: Defines:
+#   - Roles: who can do work and their cost
+#   - Workflow: allowed steps
+#   - Probabilities
+#   - Costs
+#   - Delays: how long steps take (min, max)

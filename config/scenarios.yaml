@@ -1,0 +1,12 @@
+scenarios:
+  normal:
+    delay_multiplier: 1.0
+    staffing_multiplier: 1.0
+
+  peak_season:
+    delay_multiplier: 1.5
+    staffing_multiplier: 0.8
+
+  staff_shortage:
+    delay_multiplier: 2.0
+    staffing_multiplier: 0.6

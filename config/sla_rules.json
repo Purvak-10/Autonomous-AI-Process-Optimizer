@@ -1,0 +1,10 @@
+{
+  "priority_levels": {
+    "high": { "max_resolution_minutes": 240 },
+    "medium": { "max_resolution_minutes": 480 },
+    "low": { "max_resolution_minutes": 720 }
+  },
+  "penalties": {
+    "sla_violation_cost": 50
+  }
+}
